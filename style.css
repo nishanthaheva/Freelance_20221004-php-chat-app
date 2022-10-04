@@ -1,0 +1,421 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
+
+
+:root{
+  --main-color:#C0C0C0;
+}
+
+
+*{
+  margin:0 ;
+  padding: 0;
+  box-sizing: border-box;
+  text-decoration: none;
+  font-family:serif;
+}
+
+body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 80vh;
+  background: var(--main-color);
+  padding: 0 10px;
+}
+
+.wrapper{
+  width: 100%;
+  max-width: 450px;
+  padding: 10px;
+  display: flex;
+  box-shadow: 0 0 128px 0 rgba(0,0,0,0.1),
+              0 px 68px -50px rgba(0,0,0,0.5);
+  border-radius: 20px;
+  background: var(--main-color);
+}
+
+
+/* Theme Colour Changer*/
+.color-switcher{
+  position: fixed;
+  top: 25px; right:-200px;
+  width: 200px;
+  padding: 10px;
+  background: #fff;
+  z-index: 1000;
+}
+
+.color-switcher.active{
+  right: 0px;
+}
+
+.color-switcher h3{
+  color: var(--main-color);
+  font-size: 20px;
+  margin-bottom: 10px;
+  border-bottom: 1px solid #3333;
+  padding: 5px;
+  text-align: center;
+}
+
+.color-switcher .switcher-btn{
+  position: absolute;
+  top:0; left: -75px;
+  color: var(--main-color);
+  background: #fff;
+  padding: 10px 20px;
+  cursor: pointer;
+  font-size: 34px;
+}
+
+.color-switcher .switcher-btn i{
+  animation: rotate 2s linear infinite;
+}
+
+@keyframes rotate{
+  100%{
+    transform: rotate(360deg);
+  }
+}
+
+.color-switcher .theme-bottons-container{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.color-switcher .theme-bottons-container .theme-bottons{
+  display: block;
+  height: 50px;
+  width: 50px;
+  border-radius: 50%;
+  margin: 5px;
+  cursor: pointer;
+}
+
+
+/* Sign up */
+.form{
+  padding: 25px 30px;
+}
+
+.form header{
+  font-size: 50px;
+  font-weight: 400;
+  border-bottom: 1px solid;
+}
+
+.form form{
+  margin: 5px 0;
+}
+
+.form form .error{
+  background: #f8d7da;
+  padding: 8px 10px;
+  text-align: left;
+  border-radius: 10px;
+  display: none;
+}
+
+.form form .fill{
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 10px;
+  position: relative;
+}
+
+.form form .input input{
+  height: 30px;
+  width: 100%;
+  font-size: 16px;
+  padding: 0 10px;
+  border: 1px solid #000000;
+  border-radius: 4px;
+}
+
+.form form .fill input{
+  outline: none;
+}
+
+.form form .name-info{
+  display: flex;
+}
+
+.form form .name-info .fill:first-child{
+  margin-right: 5px;
+}
+
+.form form .name-info .fill:last-child{
+  margin-left: 5px;
+}
+
+.form form .fill label{
+  margin-bottom: 3px;
+}
+
+
+
+.form form .button input{
+  margin-top: 13px;
+  height: 40px;
+  border: none;
+  font-weight: 550;
+  font-size: 20px;
+  background: #3333;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.form link{
+  text-align: center;
+  margin: 10px;
+  font-size: 18px;
+}
+
+.form .link a{
+  color: #333;
+  font-size: 40px;
+}
+
+.form .link a:hover{
+  text-decoration: underline;
+}
+
+.form form .fill i{
+  position: absolute;
+  right: 10px;
+  top: 75%;
+  transform: translateY(-50%);
+  cursor: pointer;
+  color: #ccc;
+}
+
+.form form .fill i.active ::before{
+    color: #333;
+    content: "\f070";
+
+}
+/* user page */
+.user{
+  padding: 25px 30px;
+  width: 100%;
+}
+
+.user header, .list-user a{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid #e6e6e6;
+  padding-bottom: 20px;
+}
+
+
+
+
+:is(.user, .list-user) .info{
+  display: flex;
+  align-items: center;
+}
+
+:is(.user, .list-user) .detail{
+  margin-left: 10px;
+  color: #000;
+}
+
+:is(.user, .list-user) .detail span{
+  font-size: 20px;
+  font-weight: 550;
+}
+
+.user header .logout{
+  background: #333;
+  color: #fff;
+  padding: 7px 15px;
+  border-radius: 10px;
+  font-size: 15px;
+}
+
+.user .search{
+  margin: 25px 0px;
+  display: flex;
+  position: relative;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.user .search .text{
+  font-size: 15px;
+}
+
+.user .search span{
+    font-size: 30px;
+}
+
+.user .search input{
+  position: absolute;
+  height: 38px;
+  width: calc(100% - 39px);
+  border: 1px solid #333;
+  padding: 0px 16px;
+  font-size: 17px;
+  border-radius: 4px 0px 0px 4px;
+  opacity: 0;
+  pointer-events: none;
+  transition: all 0.1s ease;
+}
+
+.user .search input.active{
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.user .search button{
+  width: 40px;
+  height: 40px;
+  outline: none;
+  border: none;
+  background: #333;
+  color: #fff;
+  border-radius: 5px 5px 5px 5px;
+  transition: all 0.1s ease;
+}
+
+.user .search button.active{
+    background: #333;
+    color: #fff;
+}
+
+.user .search button.active i::before{
+    content: "\f00d";
+}
+
+.list-user{
+  max-height: 350px;
+  overflow-y: auto;
+}
+
+:is(.list-user, .chat-area)::-webkit-scrollbar{
+  width: 0%;
+}
+
+.list-user a{
+  padding-right: 15px;
+  margin-bottom: 15px;
+  page-break-after: 15px;
+  border-bottom-color: #ccc;
+}
+
+.list-user a:last-child{
+    margin-bottom: 0px;
+    border-bottom: none;
+
+}
+
+
+.list-user a .status-on{
+  font-size: 15px;
+  color: #468669;
+}
+
+/* If status is offline */
+.list-user a .status-on.offline{
+  color: #ccc;
+}
+
+
+/* Chat area */
+.chat header{
+  display: flex;
+  align-items: center;
+  padding: 20px 32px;
+}
+
+
+
+.chat header .back-arrow{
+  font-size: 18px;
+  color: #333;
+}
+
+.chat header span{
+  font-size: 19px;
+  font-weight: 550;
+}
+
+.chat-area{
+  height: 500px;
+  width: 430px;
+  overflow-y: auto;
+  background: var(--main-color);
+  padding: 10px 30px 20px 30px;
+  box-shadow: inset 0px 49px 49px -39px rgb(0, 0, 0, 5%);
+}
+
+.chat-area .chat-bub{
+  margin: 15px 0px;
+}
+
+.chat-area .chat-bub p{
+  word-wrap: break-word;
+  padding: 5px 11px;
+  box-shadow:  inset 0px 49px 49px -39px rgb(0, 0, 0, 5%), 0px 15px 15px -15px;
+}
+
+.chat-area .outgoing-chat{
+  display: flex;
+}
+
+.outgoing-chat .chat-bub{
+  margin-left: auto;
+  max-width: calc(100% - 130px);
+}
+
+.outgoing-chat .chat-bub p{
+  background: #333;
+  color: #fff;
+  border-radius: 18px 18px 0px 18px;
+}
+.chat-area .incoming-chat{
+  display: flex;
+  align-items: flex-end;
+} 
+
+
+.incoming-chat .chat-bub{
+  margin-right: auto;
+  max-width: calc(100% - 130px);
+  margin-left: 8px;
+}
+
+.incoming-chat .chat-bub p{
+  background: #fff;
+  color: #333;
+  border-radius: 18px 18px 18px 0px;
+}
+
+.chat .type-box{
+  padding: 10px 20px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.type-box input{
+  height: 35px;
+  width: calc(100% - 53px);
+  font-size: 15px;
+  border: 1px solid #333;
+  padding: 0px 10px;
+  border-radius: 10px 0px 0px 10px;
+  outline: none;
+}
+
+.type-box button{
+  width: 57px;
+  border: none;
+  outline: none;
+  border-radius: 0px 10px 10px 0px;
+  color: #fff;
+  background: #333;
+  font-size: 24px;
+  cursor: pointer;
+}
